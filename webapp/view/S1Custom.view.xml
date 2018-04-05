@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+
+    Copyright (C) 2009-2014 SAP AG or an SAP affiliate company. All rights reserved
+
+--><!-- Copyright (C) 2009-2013 SAP AG or an SAP affiliate company. All rights reserved -->
+<sap.ui.core:View xmlns:sap.ui.core="sap.ui.core" xmlns="sap.m" xmlns:sap.me="sap.me" xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.layout.form="sap.ui.layout.form" controllerName="hcm.emp.myleaverequests.view.S1" id="S1"><!--Copied from source-->
+	<Page id="S1_page" title="{i18n&gt;LR_TITLE_HOME_VIEW}">
+		<content>
+			<sap.ui.layout:Grid class="s4leaveTypeSelectorFlx" defaultIndent="L4 M3" defaultSpan="L4 M6 S12" id="LRS4_FLX_TOP" width="auto">
+				<sap.ui.layout:content>
+					<Select change="onSelectionChange" id="SLCT_LEAVETYPE" width="100%">
+					</Select>
+				</sap.ui.layout:content>
+			</sap.ui.layout:Grid>
+
+			<sap.ui.layout:Grid defaultSpan="L12 M12 S12" width="auto">
+				<sap.ui.layout:content>
+					<sap.ui.layout.form:Form id="LRS4_FRM_MAIN" maxContainerCols="2" minWidth="1024">
+						<sap.ui.layout.form:layout>
+							<sap.ui.layout.form:ResponsiveGridLayout columnsL="1" columnsM="1" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3"/>
+						</sap.ui.layout.form:layout>
+
+						<sap.ui.layout.form:formContainers>
+							<sap.ui.layout.form:FormContainer id="LRS4_FRM_CNT_CALENDAR">
+								<sap.ui.layout.form:layoutData>
+
+									<sap.ui.layout:ResponsiveFlowLayoutData linebreak="true" weight="6"/>
+								</sap.ui.layout.form:layoutData>
+								<sap.ui.layout.form:formElements>
+									<sap.ui.layout.form:FormElement id="LRS4_FELEM_CALENDAR">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData/>
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.me:Calendar class="s4Calendar" id="LRS4_DAT_CALENDAR"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+								</sap.ui.layout.form:formElements>
+							</sap.ui.layout.form:FormContainer>
+							<sap.ui.layout.form:FormContainer id="LRS4_FRM_CNT_BALANCES">
+								<sap.ui.layout.form:layoutData>
+									<sap.ui.layout:ResponsiveFlowLayoutData weight="3"/>
+								</sap.ui.layout.form:layoutData>
+								<sap.ui.layout.form:formElements>
+									<sap.ui.layout.form:FormElement id="LRS4_FELEM_BALANCES">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData/>
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.ui.layout:Grid defaultSpan="L6 M6 S6" width="100%">
+												<sap.ui.layout:content>
+													<sap.ui.layout:VerticalLayout class="s4BalancesFlxLeft" id="LRS4_TXT_BOOKEDDAYS" width="100%">
+														<BusyIndicator id="LRS1_BUSY_BOOKEDDAYS" size="1em" visible="true"/>
+														<ObjectNumber class="s4BALANCEOBJECT" id="LRS4_TXT_BOOKED_DAYS" number="{TimeAccount&gt;BalanceTotalUsedQuantity}" unit="{TimeAccount&gt;TimeUnitName}" visible="false">
+															<layoutData>
+																<FlexItemData growFactor="1"/>
+															</layoutData>
+														</ObjectNumber>
+														<ObjectStatus id="LRS4_TXT_BOOKED" text="{i18n&gt;LR_BOOKED}">
+															<layoutData>
+																<FlexItemData growFactor="1"/>
+															</layoutData>
+														</ObjectStatus>
+													</sap.ui.layout:VerticalLayout>
+													<sap.ui.layout:VerticalLayout class="s4BalancesFlxRight" id="LRS4_TXT_REMAININGDAY" width="100%">
+														<BusyIndicator id="LRS1_BUSY_REMAININGDAYS" size="1em" visible="true"/>
+														<ObjectNumber class="s4BALANCEOBJECT" id="LRS4_TXT_REMAINING_DAYS" number="{TimeAccount&gt;BalanceAvailableQuantity}" unit="{TimeAccount&gt;TimeUnitName}" visible="false">
+															<layoutData>
+																<FlexItemData growFactor="1"/>
+															</layoutData>
+														</ObjectNumber>
+														<ObjectStatus id="LRS4_TXT_REMAINING" text="{i18n&gt;LR_REMAINING}">
+															<layoutData>
+																<FlexItemData growFactor="1"/>
+															</layoutData>
+														</ObjectStatus>
+													</sap.ui.layout:VerticalLayout>
+												</sap.ui.layout:content>
+											</sap.ui.layout:Grid>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<!--  Time Input
+									<sap.ui.layout.form:FormElement id="LRS4_FELEM_TIMEINPUT" visible="false">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData linebreak="true"/>
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.ui.layout:Grid defaultSpan="L6 M6 S6" width="100%">
+												<sap.ui.layout:content>
+													<sap.ui.layout:VerticalLayout class="s4TimeInputFlxStart s4TimeInputFlx" width="100%">
+														<Label id="LRS4_LBL_STARTTIME" text="{i18n&gt;LR_FROM}"/>
+														<DateTimeInput change="onTimeChange" displayFormat="HH:mm:ss" id="LRS4_DAT_STARTTIME" type="Time" valueFormat="HH:mm"/>
+													</sap.ui.layout:VerticalLayout>
+													<sap.ui.layout:VerticalLayout class="s4TimeInputFlx s4TimeInputFlxEnd" width="100%">
+														<Label id="LRS4_LBL_ENDTIME" text="{i18n&gt;LR_TO}"/>
+														<DateTimeInput change="onTimeChange" displayFormat="HH:mm:ss" id="LRS4_DAT_ENDTIME" type="Time" valueFormat="HH:mm"/>
+													</sap.ui.layout:VerticalLayout>
+												</sap.ui.layout:content>
+											</sap.ui.layout:Grid>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									-->
+									<sap.ui.layout.form:FormElement id="LRS4_HOURS_SET" visible="false">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData linebreak="true"/>
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.ui.layout:Grid defaultSpan="L12 M12 S12" width="100%">
+												<sap.ui.layout:content>
+													<sap.ui.layout:VerticalLayout class="s4TimeInputFlxStart s4TimeInputFlx" width="100%">
+														<Label id="LABEL_HOURS" text="Time required"/>
+														<Input id="INPUT_HOURS_SINGLE" width="100%" placeholder="Hours" />
+													</sap.ui.layout:VerticalLayout>
+												</sap.ui.layout:content>
+											</sap.ui.layout:Grid>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+
+									<!-- Other new bit -->
+									<sap.ui.layout.form:FormElement id="LRS4_SCHEDULE_SELECT" visible="false">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData linebreak="true"/>
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.ui.layout:Grid defaultSpan="L12 M12 S12" width="100%">
+												<sap.ui.layout:content>
+													<sap.ui.layout:VerticalLayout class="s4TimeInputFlxStart s4TimeInputFlx" width="100%">
+														<sap.ui.layout:VerticalLayout class="s4TimeInputFlxStart s4TimeInputFlx" width="100%">
+															<Label id="LABEL_SCHEDULE" text="Schedule"/>
+															<Select id="SCHEDULE_TYPE" width="100%" change="onScheduleChange">
+																<sap.ui.core:Item key="standard" text="Standard" />
+																<sap.ui.core:Item key="flex" text="Flex" />
+																<sap.ui.core:Item key="other" text="Other" />
+															</Select>
+															<Label id="LABEL_REQUIREDTIME" text="Time required"/>
+															<Text id="TEXT_HOURS_REQUIRED" text="" />
+															<Input id="INPUT_HOURS_MULTIPLE" width="100%" placeholder="Hours" visible="false" />
+														</sap.ui.layout:VerticalLayout>
+													</sap.ui.layout:VerticalLayout>
+												</sap.ui.layout:content>
+											</sap.ui.layout:Grid>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<!-- End of new bit -->
+									<sap.ui.layout.form:FormElement id="LRS4_FELEM_NOTE">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData linebreak="true"/>
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.ui.layout:Grid defaultSpan="L12 M12 S12" id="LRS4_NOTE" width="100%">
+												<sap.ui.layout:content>
+													<Label id="LRS4_LBL_NOTE" text="{i18n&gt;LR_NOTE}">
+														<layoutData>
+															<sap.ui.layout:ResponsiveFlowLayoutData linebreak="true"/>
+														</layoutData>
+													</Label>
+													<TextArea class="s4Notes " height="6rem" id="LRS4_TXA_NOTE" width="100%" wrapping="None">
+														<layoutData>
+															<sap.ui.layout:ResponsiveFlowLayoutData linebreak="true" weight="8"/>
+														</layoutData>
+													</TextArea>
+												</sap.ui.layout:content>
+											</sap.ui.layout:Grid>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<!-- Text 
+									<sap.ui.layout.form:FormElement id="LRS4_TEXT_WARNING">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData linebreak="true"/>
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.ui.layout:Grid defaultSpan="L12 M12 S12" id="LRS4_WARNING" width="100%">
+												<sap.ui.layout:content>
+													<Text text="If my employment is ended from the company with a negative vacation balance, the value of this vacation balance will be deducted from my paycheck or I will remit payment to the company" />							
+												</sap.ui.layout:content>
+											</sap.ui.layout:Grid>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									 extension point for additional fields -->
+									<sap.ui.core:ExtensionPoint name="extS1Field"/>
+								</sap.ui.layout.form:formElements>
+							</sap.ui.layout.form:FormContainer>
+							<sap.ui.layout.form:FormContainer id="LRS4_FRM_CNT_LEGEND">
+								<sap.ui.layout.form:layoutData>
+									<sap.ui.layout:ResponsiveFlowLayoutData linebreak="true" weight="9"/>
+								</sap.ui.layout.form:layoutData>
+								<sap.ui.layout.form:formElements>
+									<sap.ui.layout.form:FormElement id="LRS4_FELEM_LEGEND">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData linebreak="true"/>
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.me:CalendarLegend class="s4LEGEND" id="LRS4_LEGEND" legendWidth="18em">
+												<sap.me:layoutData>
+													<sap.ui.layout:ResponsiveFlowLayoutData id="LRS4_LYO_LEGEND" minWidth="30" weight="15"/>
+												</sap.me:layoutData>
+											</sap.me:CalendarLegend>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+								</sap.ui.layout.form:formElements>
+							</sap.ui.layout.form:FormContainer>
+						</sap.ui.layout.form:formContainers>
+						<sap.ui.layout.form:layout>
+							<sap.ui.layout.form:ResponsiveLayout id="LRS4_FRM_MAIN_LAYOUT"/>
+						</sap.ui.layout.form:layout>
+					</sap.ui.layout.form:Form>
+				</sap.ui.layout:content>
+			</sap.ui.layout:Grid>
+		</content>
+	</Page>
+</sap.ui.core:View>
