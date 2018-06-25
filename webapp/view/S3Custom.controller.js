@@ -1,4 +1,4 @@
-sap.ui.controller("hcm.emp.myleaverequests.Z_HCM_LR_CRE.view.S3Custom", {
+sap.ui.controller("hcm.emp.myleaverequests.Z_LEAVE1.view.S3Custom", {
 
     extHookChangeFooterButtons: function (buttons) {
         hcm.emp.myleaverequests.utils.DataManager.groupLeaveRequest = this.extHookLeaveRequestCollection;

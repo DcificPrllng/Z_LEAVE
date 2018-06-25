@@ -1,4 +1,4 @@
-jQuery.sap.declare("hcm.emp.myleaverequests.Z_HCM_LR_CRE.Component");
+jQuery.sap.declare("hcm.emp.myleaverequests.Z_LEAVE1.Component");
 
 // use the load function for getting the optimized preload file if present
 // sap.ui.component.load({
@@ -15,13 +15,14 @@ sap.ui.component.load({
 		// extension application is deployed with customer namespace
 });
 
-this.hcm.emp.myleaverequests.Component.extend("hcm.emp.myleaverequests.Z_HCM_LR_CRE.Component", {
+this.hcm.emp.myleaverequests.Component.extend("hcm.emp.myleaverequests.Z_LEAVE1.Component", {
 	metadata: {
 		version : "1.2",
 		name : "My Leave Requests",
+		includes : [ "css/custom.css" ], //array of css and/or javascript files that should be used in the component
 		config : {
 			"sap.ca.i18Nconfigs": {
-				"bundleName":"hcm.emp.myleaverequests.Z_HCM_LR_CRE.i18n.i18n"
+				"bundleName":"hcm.emp.myleaverequests.Z_LEAVE1.i18n.i18n"
 			},
 			"titleResource": 'My Leave Requests'
 		},
@@ -29,20 +30,20 @@ this.hcm.emp.myleaverequests.Component.extend("hcm.emp.myleaverequests.Z_HCM_LR_
 		customizing: {
 			"sap.ui.viewReplacements": {
 				"hcm.emp.myleaverequests.view.S1": {
-					viewName: "hcm.emp.myleaverequests.Z_HCM_LR_CRE.view.S1Custom",
+					viewName: "hcm.emp.myleaverequests.Z_LEAVE1.view.S1Custom",
 					type: "XML"
 				}
 			},
 
 			"sap.ui.controllerExtensions": {
 				"hcm.emp.myleaverequests.view.S1": {
-					controllerName: "hcm.emp.myleaverequests.Z_HCM_LR_CRE.view.S1Custom",
+					controllerName: "hcm.emp.myleaverequests.Z_LEAVE1.view.S1Custom",
 				},
 				"hcm.emp.myleaverequests.view.S3": {
-					controllerName: "hcm.emp.myleaverequests.Z_HCM_LR_CRE.view.S3Custom",
+					controllerName: "hcm.emp.myleaverequests.Z_LEAVE1.view.S3Custom",
 				},
 				"hcm.emp.myleaverequests.view.S6B": {
-					controllerName: "hcm.emp.myleaverequests.Z_HCM_LR_CRE.view.S6Custom",
+					controllerName: "hcm.emp.myleaverequests.Z_LEAVE1.view.S6Custom",
 				}
 			}
 		}			

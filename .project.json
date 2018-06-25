@@ -8,7 +8,7 @@
   },
   "deploy": {
     "destination": "GWD",
-    "name": "Z_LEAVE"
+    "name": "Z_LEAVE1"
   },
   "projectType": [
     "sap.watt.uitools.ide.fiori",
@@ -21,6 +21,6 @@
     "targetFolder": "dist",
     "excludedFolders": [],
     "excludedFiles": [],
-    "lastBuildDateTime": "Wed, 04 Apr 2018 10:22:55 GMT"
+    "lastBuildDateTime": "Fri, 06 Apr 2018 05:34:46 GMT"
   }
 }

@@ -1,6 +1,6 @@
 jQuery.sap.require('sap.ui.model.FilterOperator');
 
-sap.ui.controller("hcm.emp.myleaverequests.Z_HCM_LR_CRE.view.S1Custom", {
+sap.ui.controller("hcm.emp.myleaverequests.Z_LEAVE1.view.S1Custom", {
 	
 	publicHolidays: [],
 

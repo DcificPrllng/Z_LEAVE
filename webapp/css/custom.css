@@ -1,0 +1,35 @@
+/*Approved Leaves*/
+.sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType01 {
+    background-color: #8bc34a;
+}
+.sapMeCalendarLegendApproval .sapUIMeLegendColorForType01 {
+    background-color: #8BC34A;
+}
+
+/*Rejected Leaves*/
+.sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType07 {
+    background-color: #FF5722;
+}
+.sapMeCalendarLegendApproval .sapUIMeLegendColorForType07 {
+    background-color: #FF5722;
+    background-image: url(../../../me/themes/sap_belize/img/bg_white_transparent.png);
+}
+
+/*Pending Approval*/
+.sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType04 {
+    background-color: #8bc34a;
+    background-image: url(../../../me/themes/sap_belize/img/bg_white_transparent.png);
+}
+.sapMeCalendarLegendApproval .sapUIMeLegendColorForType04 {
+    background-color: #8BC34A;
+    background-image: url(../../../me/themes/sap_belize/img/bg_white_transparent.png);
+}
+
+
+/*Public Holiday*/
+.sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType06 {
+    background-color: #ffc107;
+}
+.sapMeCalendarLegendApproval .sapUIMeLegendColorForType06 {
+    background-color: #ffc107;
+}

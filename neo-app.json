@@ -5,7 +5,7 @@
       "path": "/sap/opu/odata",
       "target": {
         "type": "destination",
-        "name": "Gateway_Dev_NOPASS",
+        "name": "GWD",
         "entryPath": "/sap/opu/odata"
       },
       "description": "GWD"
@@ -15,7 +15,7 @@
       "wattUsage": "ui5_execute_abap",
       "target": {
         "type": "destination",
-        "name": "Gateway_Dev_NOPASS",
+        "name": "GWD",
         "entryPath": "/sap/bc/ui5_ui5"
       },
       "description": "GWD"
