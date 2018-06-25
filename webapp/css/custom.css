@@ -1,32 +1,32 @@
 /*Approved Leaves*/
-.sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType01 {
+.customLeave .sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType01 {
     background-color: #8bc34a;
 }
-.sapMeCalendarLegendApproval .sapUIMeLegendColorForType01 {
+.customLeave .sapMeCalendarLegendApproval .sapUIMeLegendColorForType01 {
     background-color: #8BC34A;
 }
 
 /*Rejected Leaves*/
-.sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType07 {
+.customLeave .sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType07 {
     background-color: #FF5722;
 }
-.sapMeCalendarLegendApproval .sapUIMeLegendColorForType07 {
+.customLeave .sapMeCalendarLegendApproval .sapUIMeLegendColorForType07 {
     background-color: #FF5722;
 }
 
 /*Pending Approval*/
-.sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType04 {
+.customLeave .sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType04 {
     background-color: #8bc34a;
 }
-.sapMeCalendarLegendApproval .sapUIMeLegendColorForType04 {
+.customLeave .sapMeCalendarLegendApproval .sapUIMeLegendColorForType04 {
     background-color: #8BC34A;
 }
 
 
 /*Public Holiday*/
-.sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType06 {
+.customLeave .sapMeCalendarApproval>.sapMeCalendarMonth>div.sapMeCalendarMonthDays>.sapMeCalendarMonthDay.sapMeCalendarType06 {
     background-color: #ffc107;
 }
-.sapMeCalendarLegendApproval .sapUIMeLegendColorForType06 {
+.customLeave .sapMeCalendarLegendApproval .sapUIMeLegendColorForType06 {
     background-color: #ffc107;
 }

@@ -15,7 +15,7 @@
 
 			<sap.ui.layout:Grid defaultSpan="L12 M12 S12" width="auto">
 				<sap.ui.layout:content>
-					<sap.ui.layout.form:Form id="LRS4_FRM_MAIN" maxContainerCols="2" minWidth="1024">
+					<sap.ui.layout.form:Form id="LRS4_FRM_MAIN" maxContainerCols="2" minWidth="1024" class="customLeave">
 						<sap.ui.layout.form:layout>
 							<sap.ui.layout.form:ResponsiveGridLayout columnsL="1" columnsM="1" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3"/>
 						</sap.ui.layout.form:layout>
