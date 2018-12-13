@@ -379,6 +379,16 @@ sap.ui.controller("hcm.emp.myleaverequests.Z_LEAVE1.view.S1Custom", {
 			_this.onSubmitLRCfail(msg);
 		}
 
+		function dateFormatter(oDate){
+			if (oDate == undefined)
+				return "";
+
+			var oDateFormat = sap.ca.ui.model.format.DateFormat.getInstance({
+				pattern : "yyyy-MM-dd"
+			});
+
+			return oDateFormat.format(oDate);			
+		}
 		if (this.cale) {
 			var _oStartEndDates = this._getStartEndDate(this.cale.getSelectedDates()),
 				dates = this.cale.getSelectedDates();
@@ -398,8 +408,8 @@ sap.ui.controller("hcm.emp.myleaverequests.Z_LEAVE1.view.S1Custom", {
 			if (dates.length === 1) {
 				hours = parseFloat(_this.byId('INPUT_HOURS_SINGLE').getValue());
 
-				sStartDate = hcm.emp.myleaverequests.utils.Formatters.DATE_YYYYMMdd(_oStartEndDates.startDate) + 'T00:00:00';
-				sEndDate = hcm.emp.myleaverequests.utils.Formatters.DATE_YYYYMMdd(_oStartEndDates.endDate) + 'T00:00:00';
+				sStartDate = dateFormatter(_oStartEndDates.startDate) + 'T00:00:00';
+				sEndDate = dateFormatter(_oStartEndDates.endDate) + 'T00:00:00';
 
 				totalDays = 1; // For Completion check
 
@@ -447,8 +457,8 @@ sap.ui.controller("hcm.emp.myleaverequests.Z_LEAVE1.view.S1Custom", {
 							hours = 8;
 						}
 
-						sStartDate = hcm.emp.myleaverequests.utils.Formatters.DATE_YYYYMMdd(dayDate) + 'T00:00:00';
-						sEndDate = hcm.emp.myleaverequests.utils.Formatters.DATE_YYYYMMdd(dayDate) + 'T00:00:00';
+						sStartDate = dateFormatter(dayDate) + 'T00:00:00';
+						sEndDate = dateFormatter(dayDate) + 'T00:00:00';
 
 						requestedData.push({
 							date: sStartDate,

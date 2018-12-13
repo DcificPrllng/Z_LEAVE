@@ -1,4 +1,4 @@
-sap.ui.controller("hcm.emp.myleaverequests.Z_HCM_LR_CRE.view.S6Custom", {
+sap.ui.controller("hcm.emp.myleaverequests.Z_LEAVE1.view.S6Custom", {
 
     extHookChangeFooterButtons: function (buttons) {
         var _this = this;

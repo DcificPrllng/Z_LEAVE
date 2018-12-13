@@ -93,7 +93,63 @@ sap.ui.controller("hcm.emp.myleaverequests.Z_LEAVE1.view.S3Custom", {
         });
 
         return output;
-    }
+    },
+    
+    setMasterListItems: function() {
+        var _ = this;
+        try {
+            if (_.objLeaveRequestCollection) {
+                hcm.emp.myleaverequests.utils.UIHelper.setRoutingProperty(_.objLeaveRequestCollection);
+                _.objLeaveRequestCollection = hcm.emp.myleaverequests.utils.UIHelper.getRoutingProperty();
+                var m = new sap.ui.model.json.JSONModel({
+                    "LeaveRequestCollection": _.objLeaveRequestCollection
+                });
+				//Below line is the fix for master list not populating right
+				_.oView.setModel(null);
+                _.oView.setModel(m);
+                var i = new sap.m.ObjectListItem({
+                    type: "{device>/listItemType}",
+                    title: "{AbsenceTypeName}",
+                    number: "{parts:[{path:'WorkingDaysDuration'},{path:'WorkingHoursDuration'}], formatter:'hcm.emp.myleaverequests.utils.Formatters.DURATION'}",
+                    numberUnit: "{parts:[{path:'WorkingDaysDuration'},{path:'WorkingHoursDuration'}], formatter:'hcm.emp.myleaverequests.utils.Formatters.DURATION_UNIT'}",
+                    attributes: [new sap.m.ObjectAttribute({
+                        text: "{path:'StartDate', formatter:'hcm.emp.myleaverequests.utils.Formatters.DATE_ODATA_EEEdMMMyyyy'}"
+                    }), new sap.m.ObjectAttribute({
+                        text: "{parts:[{path:'i18n>LR_HYPHEN'},{path:'WorkingDaysDuration'},{path:'StartTime'},{path:'EndDate'},{path:'EndTime'}], formatter: 'hcm.emp.myleaverequests.utils.Formatters.FORMAT_ENDDATE'}"
+                    })],
+                    firstStatus: new sap.m.ObjectStatus({
+                        text: "{StatusName}",
+                        state: "{path:'StatusCode', formatter:'hcm.emp.myleaverequests.utils.Formatters.State'}"
+                    }),
+                    secondStatus: new sap.m.ObjectStatus({
+                        state: "Error",
+                        text: "{path:'aRelatedRequests', formatter:'hcm.emp.myleaverequests.utils.Formatters.FORMATTER_INTRO'}"
+                    }),
+                    press: jQuery.proxy(_._handleItemPress, _)
+                });
+                if (this.extHookItemTemplate) {
+                    i = this.extHookItemTemplate(i);
+                }
+                _.masterListCntrl.bindItems({
+                    path: "/LeaveRequestCollection",
+                    template: i
+                });
+                if (_._fnRefreshCompleted) {
+                    _._fnRefreshCompleted();
+                }
+            }
+        } catch (e) {
+            jQuery.sap.log.warning(e);
+        }
+        sap.ca.ui.utils.busydialog.releaseBusyDialog();
+        if (!jQuery.device.is.phone && !_._isInitialized) {
+            _.registerMasterListBind(_.masterListCntrl);
+            _._isInitialized = true;
+        }
+        if (!jQuery.device.is.phone || hcm.emp.myleaverequests.utils.UIHelper.getIsWithDrawAction()) {
+            _.setLeadSelection();
+        }
+    }    
 
 });
 
